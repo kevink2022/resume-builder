@@ -1,0 +1,23 @@
+<!-- section.component.html -->
+
+<div class="section">
+    <div class="section-header" (click)="toggleCheck()">
+    <input
+        type="checkbox"
+        [checked]="section.isChecked"
+        (click)="$event.stopPropagation()"
+    />
+    <div class="section-title">{{ section.title }}</div>
+    </div>
+    <div class="section-content">
+    <ng-container *ngFor="let entry of section.entries">
+        <ng-container *ngIf="section.type === SectionType.job">
+        <app-job *ngIf="Job.isJob(entry)" [job]="entry"></app-job>
+        </ng-container>
+        <ng-container *ngIf="section.type === SectionType.project">
+        <app-project *ngIf="Project.isProject(entry)" [project]="entry"></app-project>
+        </ng-container>
+    </ng-container>
+    </div>
+</div>
+  

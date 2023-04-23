@@ -1,0 +1,8 @@
+<div class="project" (click)="toggleCheck()">
+    <input type="checkbox" [checked]="project.isChecked" (click)="$event.stopPropagation()" />
+    <div class="project-content">
+        <div class="project-title">{{ project.title }}</div>
+        <div class="project-date-range">{{ project.startDate }} - {{ project.endDate }}</div>
+    </div>
+</div>
+  

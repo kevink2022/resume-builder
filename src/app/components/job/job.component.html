@@ -1,0 +1,9 @@
+<div class="job" (click)="toggleCheck()">
+    <input type="checkbox" [checked]="job.isChecked" (click)="$event.stopPropagation()" />
+    <div class="job-content">
+        <div class="job-title">{{ job.title }}</div>
+        <div class="job-employer">{{ job.employer }}</div>
+        <div class="job-location">{{ job.location }}</div>
+        <div class="job-date-range">{{ job.startDate }} - {{ job.endDate }}</div>
+    </div>
+</div>

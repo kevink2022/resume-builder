@@ -1,0 +1,5 @@
+<div class="bullet" (click)="toggleCheck()">
+    <input type="checkbox" [checked]="bullet.isChecked" (click)="$event.stopPropagation()" />
+    <div class="bullet-content">{{ bullet.content }}</div>
+</div>
+  
