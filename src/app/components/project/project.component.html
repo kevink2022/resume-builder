@@ -1,8 +1,11 @@
-<div class="project" (click)="toggleCheck()">
-    <input type="checkbox" [checked]="project.isChecked" (click)="$event.stopPropagation()" />
-    <div class="project-content">
-        <div class="project-title">{{ project.title }}</div>
-        <div class="project-date-range">{{ project.startDate }} - {{ project.endDate }}</div>
-    </div>
+<!-- project.component.html -->
+
+<button class="project-button" (click)="toggleCheck()">
+    <img *ngIf="project.isChecked" src="assets/images/svg/check-box.svg" alt="Checked" class="svg-icon" />
+    <img *ngIf="!project.isChecked" src="assets/images/svg/uncheck-box.svg" alt="Unchecked" class="svg-icon" />
+    {{ project.title }}
+</button>
+<div *ngIf="project.isChecked" class="project-bullets">
+    <app-bullet *ngFor="let bullet of project.bullets" [bullet]="bullet"></app-bullet>
 </div>
   

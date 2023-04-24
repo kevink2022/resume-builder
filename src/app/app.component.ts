@@ -8,6 +8,13 @@ import { ManagerService } from './services/manager.service';
 })
 export class AppComponent {
   constructor(public managerService: ManagerService) {}
+
+  isDarkMode = false;
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    document.body.classList.toggle('dark-theme', this.isDarkMode);
+  }
 }
 
 // import { Component } from '@angular/core';

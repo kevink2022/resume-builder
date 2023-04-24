@@ -1,5 +1,5 @@
-<div class="bullet" (click)="toggleCheck()">
-    <input type="checkbox" [checked]="bullet.isChecked" (click)="$event.stopPropagation()" />
-    <div class="bullet-content">{{ bullet.content }}</div>
-</div>
-  
+<button class="bullet-button" (click)="toggleCheck()">
+    <img *ngIf="bullet.isChecked" src="assets/images/svg/check-box.svg" alt="Checked" class="svg-icon" />
+    <img *ngIf="!bullet.isChecked" src="assets/images/svg/uncheck-box.svg" alt="Unchecked" class="svg-icon" />
+    {{ bullet.content }}
+</button>

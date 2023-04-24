@@ -1,0 +1,7 @@
+<!-- links.component.html -->
+
+<button class="link-button" (click)="toggleCheck()">
+    <img *ngIf="link.isChecked" src="assets/images/svg/check-box.svg" alt="Checked" class="svg-icon" />
+    <img *ngIf="!link.isChecked" src="assets/images/svg/uncheck-box.svg" alt="Unchecked" class="svg-icon" />
+    {{ link.title }}
+</button>

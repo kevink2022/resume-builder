@@ -1,9 +1,10 @@
-<div class="job" (click)="toggleCheck()">
-    <input type="checkbox" [checked]="job.isChecked" (click)="$event.stopPropagation()" />
-    <div class="job-content">
-        <div class="job-title">{{ job.title }}</div>
-        <div class="job-employer">{{ job.employer }}</div>
-        <div class="job-location">{{ job.location }}</div>
-        <div class="job-date-range">{{ job.startDate }} - {{ job.endDate }}</div>
-    </div>
+<button class="job-button" (click)="toggleCheck()">
+    <img *ngIf="job.isChecked" src="assets/images/svg/check-box.svg" alt="Checked" class="svg-icon" />
+    <img *ngIf="!job.isChecked" src="assets/images/svg/uncheck-box.svg" alt="Unchecked" class="svg-icon" />
+    <span class="job-title">{{job.title}}</span>
+    <span class="job-details">{{job.employer}}</span>
+</button>
+<div *ngIf="job.isChecked" class="job-bullets">
+    <app-bullet *ngFor="let bullet of job.bullets" [bullet]="bullet"></app-bullet>
 </div>
+  

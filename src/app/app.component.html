@@ -1,13 +1,45 @@
-<div>
-  <h1>{{ managerService.resume.fullName }}</h1>
-  <p>{{ managerService.resume.email }}</p>
-  <p>{{ managerService.resume.phoneNumber }}</p>
-
-  <div *ngFor="let link of managerService.resume.links">
-    <app-link [link]="link"></app-link>
+<div class="app-container">
+  <div class="header">Header with options
+    <div class="toolbar">
+      <button class="toolbar-item">
+        <img src="assets/images/svg/settings-icon.svg" alt="Template" />
+        <span>Template</span>
+      </button>
+      <button class="toolbar-item">
+        <img src="assets/images/svg/sheet-folded-list-icon.svg" alt="Data" />
+        <span>Data</span>
+      </button>
+      <button class="toolbar-item">
+        <img src="assets/images/svg/edit-icon.svg" alt="Edit" />
+        <span>Edit</span>
+      </button>
+      <button class="toolbar-item" (click)="toggleTheme()">
+        <ng-container *ngIf="isDarkMode">
+          <img src="assets/images/svg/light-mode-icon.svg" alt="Light Mode" />
+          <span>Light Mode</span>
+        </ng-container>
+        <ng-container *ngIf="!isDarkMode">
+          <img src="assets/images/svg/dark-mode-icon.svg" alt="Dark Mode" />
+          <span>Dark Mode</span>
+        </ng-container>
+      </button>
+      <!-- Add more buttons as needed -->
+    </div>
   </div>
-
-  <div *ngFor="let section of managerService.resume.sections">
-    <app-section [section]="section"></app-section>
-  </div>
+  <div class="content">
+    <div class="left-pane">
+      <div class="personal-info">
+        <div>{{managerService.resume.firstName}} {{managerService.resume.lastName}}</div>
+        <div>{{managerService.resume.email}}</div>
+        <div>{{managerService.resume.phoneNumber}}</div>
+      </div>
+      <div class="label">Links</div>
+      <ng-container *ngFor="let link of managerService.resume.links">
+        <app-link [link]="link"></app-link>
+      </ng-container>
+        <div class="label">Sections</div>
+        <app-section *ngFor="let section of managerService.resume.sections" [section]="section"></app-section>
+    </div>
+    <div class="right-pane">Right pane for PDF preview</div>
+  </div>  
 </div>
