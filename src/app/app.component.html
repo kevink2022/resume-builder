@@ -1,5 +1,5 @@
 <div class="app-container">
-  <div class="header">Header with options
+  <div class="header">
     <div class="toolbar">
       <button class="toolbar-item">
         <img src="assets/images/svg/settings-icon.svg" alt="Template" />
@@ -26,20 +26,27 @@
       <!-- Add more buttons as needed -->
     </div>
   </div>
-  <div class="content">
-    <div class="left-pane">
-      <div class="personal-info">
-        <div>{{managerService.resume.firstName}} {{managerService.resume.lastName}}</div>
-        <div>{{managerService.resume.email}}</div>
-        <div>{{managerService.resume.phoneNumber}}</div>
+  <as-split>
+    <as-split-area>
+      <div class="left-pane">
+        <div class="personal-info">
+          <div>{{managerService.resume.firstName}} {{managerService.resume.lastName}}</div>
+          <div>{{managerService.resume.email}}</div>
+          <div>{{managerService.resume.phoneNumber}}</div>
+        </div>
+        <div class="label">Links</div>
+        <ng-container *ngFor="let link of managerService.resume.links">
+          <app-link [link]="link"></app-link>
+        </ng-container>
+          <div class="label">Sections</div>
+          <app-section *ngFor="let section of managerService.resume.sections" [section]="section"></app-section>
       </div>
-      <div class="label">Links</div>
-      <ng-container *ngFor="let link of managerService.resume.links">
-        <app-link [link]="link"></app-link>
-      </ng-container>
-        <div class="label">Sections</div>
-        <app-section *ngFor="let section of managerService.resume.sections" [section]="section"></app-section>
-    </div>
-    <div class="right-pane">Right pane for PDF preview</div>
-  </div>  
-</div>
+    </as-split-area>
+    <as-split-area>
+      <div class="right-pane">
+        <!-- This has a lot of issues that need to be fixed -->
+        <app-pdf-view></app-pdf-view>
+      </div>
+    </as-split-area>
+  </as-split>
+</div> 

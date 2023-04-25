@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ManagerService } from './services/manager.service';
 
 @Component({
@@ -15,15 +15,10 @@ export class AppComponent {
     this.isDarkMode = !this.isDarkMode;
     document.body.classList.toggle('dark-theme', this.isDarkMode);
   }
+
+  @Output() splitDragEnd: EventEmitter<void> = new EventEmitter();
+
+  onSplitDragEnd(event: any) {
+    this.splitDragEnd.emit();
+  }
 }
-
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.scss']
-// })
-// export class AppComponent {
-//   title = 'resume-builder';
-// }

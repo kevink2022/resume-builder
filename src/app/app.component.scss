@@ -12,6 +12,9 @@
     display: flex;
     justify-content: flex-start;
     padding: 0.5rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #9a9a9a;
 }
 
 .toolbar-item {
@@ -19,7 +22,7 @@
     align-items: center;
     padding: 0.5rem;
     font-weight: bold;
-    color: darkblue;
+    color: rgb(0, 0, 0);
     border-right: 1px solid white;
     cursor: pointer;
     text-decoration: none;
@@ -88,9 +91,19 @@ body {
 
 .resume-item:hover {
     background-color: #2a8ff3;
+    font-weight: bold;
 }
 
 .label {
     font-weight: bold;
     margin: 1rem 0;
+}
+
+as-split {
+    display: flex;
+    height: 100%;
+}
+
+as-split-area {
+    overflow: auto;
 }

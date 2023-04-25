@@ -15,7 +15,7 @@ export class ManagerService {
   }
 
   private loadResumeData(): void {
-    this.httpClient.get('assets/example_resume.json').subscribe(
+    this.httpClient.get('assets/examples/example_resume.json').subscribe(
       (data: any) => {
         this.resume = Resume.fromJson(data);
         console.log('Resume data loaded:', this.resume);
