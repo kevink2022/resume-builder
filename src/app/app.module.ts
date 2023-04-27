@@ -12,8 +12,9 @@ import { ProjectComponent } from './components/project/project.component';
 import { BulletComponent } from './components/bullet/bullet.component';
 import { SectionComponent } from './components/section/section.component';
 import { LinkComponent } from './components/link/link.component';
-import { CodeViewComponent } from './components/code-view/code-view.component';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,14 +24,15 @@ import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
     BulletComponent,
     SectionComponent,
     LinkComponent,
-    CodeViewComponent,
     PdfViewComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule, 
     HttpClientModule, 
     AngularSplitModule,
-    PdfViewerModule
+    PdfViewerModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

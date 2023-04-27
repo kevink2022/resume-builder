@@ -1,30 +1,9 @@
 <div class="app-container">
   <div class="header">
-    <div class="toolbar">
-      <button class="toolbar-item">
-        <img src="assets/images/svg/settings-icon.svg" alt="Template" />
-        <span>Template</span>
-      </button>
-      <button class="toolbar-item">
-        <img src="assets/images/svg/sheet-folded-list-icon.svg" alt="Data" />
-        <span>Data</span>
-      </button>
-      <button class="toolbar-item">
-        <img src="assets/images/svg/edit-icon.svg" alt="Edit" />
-        <span>Edit</span>
-      </button>
-      <button class="toolbar-item" (click)="toggleTheme()">
-        <ng-container *ngIf="isDarkMode">
-          <img src="assets/images/svg/light-mode-icon.svg" alt="Light Mode" />
-          <span>Light Mode</span>
-        </ng-container>
-        <ng-container *ngIf="!isDarkMode">
-          <img src="assets/images/svg/dark-mode-icon.svg" alt="Dark Mode" />
-          <span>Dark Mode</span>
-        </ng-container>
-      </button>
-      <!-- Add more buttons as needed -->
-    </div>
+    <app-toolbar
+      [isDarkMode]="isDarkMode"
+      (themeToggle)="toggleTheme()"
+    ></app-toolbar>
   </div>
   <as-split>
     <as-split-area>
